@@ -74,6 +74,8 @@ using namespace std;
     case LC_DYLIB_CODE_SIGN_DRS:  return @"LC_DYLIB_CODE_SIGN_DRS";
     case LC_LINKER_OPTION:        return @"LC_LINKER_OPTION";
     case LC_LINKER_OPTIMIZATION_HINT: return @"LC_LINKER_OPTIMIZATION_HINT";
+    case LC_DYLD_EXPORTS_TRIE:    return @"LC_DYLD_EXPORTS_TRIE";
+    case LC_DYLD_CHAINED_FIXUPS:   return @"LC_DYLD_CHAINED_FIXUPS";
   }
 }
 
@@ -2270,6 +2272,8 @@ using namespace std;
     case LC_DATA_IN_CODE:
     case LC_DYLIB_CODE_SIGN_DRS:
     case LC_LINKER_OPTIMIZATION_HINT:
+    case LC_DYLD_EXPORTS_TRIE:
+    case LC_DYLD_CHAINED_FIXUPS:
     {
       MATCH_STRUCT(linkedit_data_command,location)
       node = [self createLCLinkeditDataNode:parent 
